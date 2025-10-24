@@ -1,10 +1,4 @@
 package portfoliomanager.model;
-
-/**
- * Represents a generic investment (e.g., mutual fund, ETF, alternate investment).
- * units: number of units/shares held
- * nav: net asset value / unit price
- */
 public class Investment {
     private String id;
     private String name;

@@ -18,7 +18,7 @@ public class Portfolio {
         investments = new ArrayList<>();
     }
 
-    // ----- Stock operations (unchanged semantics) -----
+    // ----- Stock operations -----
     public void addStock(Stock stock) {
         for (Stock s : stocks) {
             if (s.getSymbol().equalsIgnoreCase(stock.getSymbol())) {
@@ -98,11 +98,6 @@ public class Portfolio {
         for (Investment i : investments) total += i.getValue();
         return total;
     }
-
-    // ----- CSV persistence -----
-    // Each type has its own CSV file: stocks.csv, bonds.csv, investments.csv
-    // folderPath is a directory path where the files will be written (create if necessary)
-
     public void saveAll(String folderPath) {
         File dir = new File(folderPath);
         if (!dir.exists()) dir.mkdirs();
@@ -203,14 +198,14 @@ public class Portfolio {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    // ----- small CSV helpers -----
+   
     private String escape(String s) {
         if (s == null) return "";
-        return s.replace("\"", "\"\""); // basic escape (we use simple split so avoid commas in names)
+        return s.replace("\"", "\"\""); 
     }
     private String unescape(String s) { return s == null ? "" : s.replace("\"\"", "\""); }
 
-    // split into max parts, naive splitter that doesn't handle quoted commas robustly but enough for simple CSVs
+    
     private String[] splitCsv(String line, int expectedParts) {
         String[] parts = line.split(",", expectedParts);
         for (int i = 0; i < parts.length; i++) parts[i] = parts[i].trim();

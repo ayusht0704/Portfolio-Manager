@@ -1,12 +1,4 @@
 package portfoliomanager.model;
-
-/**
- * Represents a bond holding.
- * faceValue: nominal value per bond (e.g., 1000)
- * couponRate: annual coupon percent (e.g., 6.5 for 6.5%)
- * quantity: number of bonds held
- * marketPrice: current market price per bond (same currency as faceValue)
- */
 public class Bond {
     private String id;
     private String name;
